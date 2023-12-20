@@ -1,7 +1,8 @@
+#include "Grid.hpp"
+
 #include <fstream>
 #include <iostream>
 #include <ostream>
-#include "Grid.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 	int i = 0;
 	int j = 0;
 	while (std::getline(file, line)) {
-		for(char c : line) grid.setChar(i, j++, c);
+		for (char c : line) grid.setChar(i, j++, c);
 		i++;
 		j = 0;
 	}
@@ -37,21 +38,15 @@ int main(int argc, char *argv[])
 	grid.print();
 
 	int sumPartNumbers = 0;
-	for(Number number : grid.getNumbers()) {
+	for (Number number : grid.getNumbers()) {
 		if (number.isPartNumber(grid))
 			sumPartNumbers += number.getNumber();
 	}
 
-	std::cout
-		<< "Sum of part numbers: "
-		<< sumPartNumbers
-		<< std::endl;
+	std::cout << "Sum of part numbers: " << sumPartNumbers << std::endl;
 
 	int gearRatioSum = grid.gearRatioSum();
-	std::cout
-		<< "Sum of gear ratios:  "
-		<< gearRatioSum
-		<< std::endl;
+	std::cout << "Sum of gear ratios:  " << gearRatioSum << std::endl;
 
 	file.close();
 
