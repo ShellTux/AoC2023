@@ -38,12 +38,20 @@ int main(int argc, char *argv[])
 
 	int sumPartNumbers = 0;
 	for(Number number : grid.getNumbers()) {
-		number.print(grid);
 		if (number.isPartNumber(grid))
 			sumPartNumbers += number.getNumber();
 	}
 
-	std::cout << "Sum of part numbers: " << sumPartNumbers << std::endl;
+	std::cout
+		<< "Sum of part numbers: "
+		<< sumPartNumbers
+		<< std::endl;
+
+	int gearRatioSum = grid.gearRatioSum();
+	std::cout
+		<< "Sum of gear ratios:  "
+		<< gearRatioSum
+		<< std::endl;
 
 	file.close();
 
